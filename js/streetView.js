@@ -1,5 +1,5 @@
 streetViewModulo = (function () {
-  var paronama // 'Visor' de StreetView
+  var panorama // 'Visor' de StreetView
 
   function inicializar () {
         /* Completar la función inicializar()  que crea un panorama
