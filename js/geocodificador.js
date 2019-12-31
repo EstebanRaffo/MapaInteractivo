@@ -1,14 +1,43 @@
 geocodificadorModulo = (function () {
   var geocodificador // Geocodificador que dada una dirección devuelve una coordenada
-  
+    
     // Permite obtener las coordenadas y las usa con la función llamada por parámetro
   function usaDireccion (direccion, funcionALlamar) {
-      /* Completar la función usaDireccion(dirección,funcionALlamar)
+      /* Completar la función usaDireccion(dirección, funcionALlamar)
      para que se obtengan las coordenadas a partir de la dirección pasada por parámetro
      y que llame a la función pasada por parámetro con los siguientes parámetros
      dirección: la dirección pasada por parámetro
-     coordenada: la ubicación de tipo google.maps.LatLng */
+     coordenada: la ubicación de tipo google.maps.LatLng */ 
+    
+     geocodificador.geocode({'address': direccion}, function(results, status){
+      if(status == google.maps.GeocoderStatus.OK){
+        console.log(results[0].geometry.location.lat());
+        var latitude = results[0].geometry.location.lat();
+
+        console.log(results[0].geometry.location.lng());
+        var longitude = results[0].geometry.location.lng();
+
+        var ubicacion = new google.maps.LatLng(latitude, longitude);
+
+        funcionALlamar(direccion, ubicacion);
+
+      }else{
+        alert('Geocode no fue exitoso por la siguiente razon: ' + status);
+      }
+    });
+     
+     
   }
+
+    // Agrega la dirección en las listas de puntos intermedios y lo muestra con el street view
+    // function agregarDireccionYMostrarEnMapa (direccion, ubicacion) {
+    //   that = this
+    //   var ubicacionTexto = ubicacion.lat() + ',' + ubicacion.lng()
+    //   agregarDireccionEnLista(direccion, ubicacionTexto)
+    //   mapa.setCenter(ubicacion)
+    //   streetViewModulo.fijarStreetView(ubicacion)
+    //   marcadorModulo.mostrarMiMarcador(ubicacion)
+    // }
 
     // Inicializo el geocoder que obtiene las coordenadas a partir de una dirección
     // La variable dirección es igual al texto ingresado por el usuario
