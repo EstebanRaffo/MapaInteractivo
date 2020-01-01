@@ -29,16 +29,6 @@ geocodificadorModulo = (function () {
      
   }
 
-    // Agrega la dirección en las listas de puntos intermedios y lo muestra con el street view
-    // function agregarDireccionYMostrarEnMapa (direccion, ubicacion) {
-    //   that = this
-    //   var ubicacionTexto = ubicacion.lat() + ',' + ubicacion.lng()
-    //   agregarDireccionEnLista(direccion, ubicacionTexto)
-    //   mapa.setCenter(ubicacion)
-    //   streetViewModulo.fijarStreetView(ubicacion)
-    //   marcadorModulo.mostrarMiMarcador(ubicacion)
-    // }
-
     // Inicializo el geocoder que obtiene las coordenadas a partir de una dirección
     // La variable dirección es igual al texto ingresado por el usuario
     // Llama a la función usaDireccion para agregarla a los listados y mostrarlo en el mapa

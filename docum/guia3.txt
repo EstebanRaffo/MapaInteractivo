@@ -1,0 +1,28 @@
+Guía 3: Agregado de funcionalidades extra
+
+Preparación
+
+En esta guía vas a trabajar con los archivos streetView.jsy direcciones.js. Estos archivos ya están vinculados en el HTML.
+
+Recordá tener abierto el archivo index.html en el navegador o en “HTML Preview” si estás usando Atom para poder ir viendo los cambios
+que vas realizando.
+
+Recomiendan los/as pro: Releé la documentación de la API oficial cuando quieras incorporar nuevas funcionalidades. Recordá que si te 
+perdés podés ver la documentación creada por el equipo de contenidos de Acamica.
+
+Paso 1: Agregar imágenes panorámicas con StreetView
+Ahora vamos a agregar imágenes panorámicas para poder ver los lugares que nos interesan.
+
+Para esto, dentro del archivo streetView.js. encontrarás dos funciones que deberás completar:
+
+inicializar(): Debe crear una instancia de StreetViewPanorama con una posición, el elemento HTML donde se mostrará el mapa.
+fijarStreetView(ubicacion): Actualiza la posición de la variable panorama y cambia el mapa de modo tal que se vea el streetView de la 
+posición actual.
+
+Ojo: En los recursos ya está implementado el botón para ocultar o mostrar el Street View. Es posible que tengas que hacer clic en el 
+botón para visualizar la imagen panorámica.
+
+Pista: La clase StreetViewPanorama y un método de la clase Map te servirán para cumplir la consigna. Lee sobre estos en la 
+documentación
+
+Ahora el mapa muestra la ubicación con una imagen 360:

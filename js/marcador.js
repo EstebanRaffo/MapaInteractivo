@@ -238,7 +238,7 @@ marcadorModulo = (function () {
       miPosicion = posicionCentral
     }
     lugaresModulo.buscarCerca(miPosicion)
-        // cambio el centro del mapa a miPosicion
+    // cambio el centro del mapa a miPosicion
     mapa.panTo(miPosicion)
   }
 
