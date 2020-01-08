@@ -26,3 +26,18 @@ Pista: La clase StreetViewPanorama y un método de la clase Map te servirán par
 documentación
 
 Ahora el mapa muestra la ubicación con una imagen 360:
+
+
+Paso 2: Calcular las rutas entre dos puntos
+
+Vamos a usar la API de Google Maps para hacer que nuestro programa calcule la ruta entre dos posiciones y la muestre en el mapa. De 
+esta manera le damos a nuestro mapa un valor agregado para guiar al usuario a su destino deseado.
+
+Para agregar esta funcionalidad deberás completar la función calcularYMostrarRutas() que calcula la ruta entre dos posiciones 
+ingresadas, dependiendo de si el usuario elige ir caminando, en transporte público, o en auto. Luego, la misma función deberá mostrar 
+la ruta en el mapa y un resumen en formato de texto en el panel.
+
+Nota: No te olvides de identificar los elementos HTML de index.html que se usan para calcular las rutas.
+
+Pista: Para calcular una ruta necesito el origen, el destino, la forma de ir y los puntos intermedios. Las variables mostradorDirecciones
+y servicio Direcciones te serán útiles.
