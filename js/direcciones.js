@@ -15,7 +15,7 @@ direccionesModulo = (function () {
     var listasLugares = document.getElementsByClassName('lugares')
     for (var j = 0; j < listasLugares.length; j++) {
       listasLugares[j].addEventListener('change', function () {
-        if (document.getElementById('desde').value != '' && document.getElementById('desde').value != '') {
+        if (document.getElementById('desde').value != '' && document.getElementById('hasta').value != '') {
           direccionesModulo.calcularYMostrarRutas()
         }
       })
@@ -67,19 +67,20 @@ direccionesModulo = (function () {
         geocodificadorModulo.usaDireccion(direccion, direccionesModulo.agregarDireccion)
       }
     })
-        // Calcula las rutas cuando se presioná enter en el campo desde y hay un valor disitnto a vacío en 'hasta'
+        // Calcula las rutas cuando se presioná enter en el campo desde y hay un valor distinto a vacío en 'hasta'
     $('#desde').keypress(function (e) {
       if (e.keyCode == 13 && document.getElementById('hasta').value != '') {
         direccionesModulo.calcularYMostrarRutas()
       }
     })
 
-        // Calcula las rutas cuando se presioná enter en el campo hasta y hay un valor disitnto a vacío en 'desde'
+        // Calcula las rutas cuando se presioná enter en el campo hasta y hay un valor distinto a vacío en 'desde'
     $('#hasta').keypress(function (e) {
       if (e.keyCode == 13 && document.getElementById('desde').value != '') {
         direccionesModulo.calcularYMostrarRutas()
       }
     })
+    
     servicioDirecciones = new google.maps.DirectionsService()
     mostradorDirecciones = new google.maps.DirectionsRenderer({
       draggable: true,
@@ -96,6 +97,60 @@ direccionesModulo = (function () {
         /* Completar la función calcularYMostrarRutas , que dependiendo de la forma en que el
          usuario quiere ir de un camino al otro, calcula la ruta entre esas dos posiciones
          y luego muestra la ruta. */
+
+        //  Pista: Para calcular una ruta necesito el origen, el destino, la forma de ir y los
+        //  puntos intermedios. Las variables mostradorDirecciones y servicioDirecciones te serán útiles.
+
+        // servicioDirecciones  Servicio que calcula las direcciones
+        // mostradorDirecciones  Servicio muestra las direcciones
+
+        // Ejemplo de DirectionsRequest
+
+        // {
+        //   origin: 'Chicago, IL',
+        //   destination: 'Los Angeles, CA',
+        //   waypoints: [
+        //     {
+        //       location: 'Joplin, MO',
+        //       stopover: false
+        //     },{
+        //       location: 'Oklahoma City, OK',
+        //       stopover: true
+        //     }],
+        //   provideRouteAlternatives: false,
+        //   travelMode: 'DRIVING',
+        //   drivingOptions: {
+        //     departureTime: new Date(/* now, or future date */),
+        //     trafficModel: 'pessimistic'
+        //   },
+        //   unitSystem: google.maps.UnitSystem.IMPERIAL
+        // }
+
+          
+          var chicago = new google.maps.LatLng(41.850033, -87.6500523);
+          var mapOptions = {
+            zoom:7,
+            center: chicago
+          }
+          var map = new google.maps.Map(document.getElementById('map'), mapOptions);
+          directionsRenderer.setMap(map);
+          calcRoute()
+        
+  }
+
+  function calcRoute() {
+    var start = document.getElementById('start').value;
+    var end = document.getElementById('end').value;
+    var request = {
+      origin: start,
+      destination: end,
+      travelMode: 'DRIVING'
+    };
+    directionsService.route(request, function(result, status) {
+      if (status == 'OK') {
+        directionsRenderer.setDirections(result);
+      }
+    });
   }
 
   return {
