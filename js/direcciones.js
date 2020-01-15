@@ -93,69 +93,39 @@ direccionesModulo = (function () {
     // Calcula la ruta entre los puntos Desde y Hasta con los puntosIntermedios
     // dependiendo de la formaDeIr que puede ser Caminando, Auto o Bus/Subterraneo/Tren
   function calcularYMostrarRutas () {
-
-        /* Completar la función calcularYMostrarRutas, que dependiendo de la forma en que el
-         usuario quiere ir de un camino al otro, calcula la ruta entre esas dos posiciones
-         y luego muestra la ruta. */
-
-        var acamica = new google.maps.LatLng(-34.6037389, -58.3815704);
-        var mapOptions = {
-          zoom: 14,
-          center: acamica
+    /* Completar la función calcularYMostrarRutas, que dependiendo de la forma en que el
+      usuario quiere ir de un camino al otro, calcula la ruta entre esas dos posiciones
+      y luego muestra la ruta. */
+      
+      var start = $('#desde').val()
+      var end = $('#hasta').val()
+      var medioDeTransporte = $('#comoIr option:selected').val() 
+      
+      var waypts = [];
+      var checkboxArray = $('#puntosIntermedios')
+      
+      for (var i = 0; i < checkboxArray.length; i++) {
+        if (checkboxArray.options[i].selected) {
+          waypts.push({
+            location: $(checkboxArray[i]).val(),
+            stopover: true
+          });
         }
-        var map = new google.maps.Map(document.getElementById('map'), mapOptions);
-        mostradorDirecciones.setMap(map);
-        calcRoute();
-        
-  }
-
-  // DirectionsRequest
-  // {
-  //   origin: LatLng | String | google.maps.Place,
-  //   destination: LatLng | String | google.maps.Place,
-  //   travelMode: TravelMode,
-  //   transitOptions: TransitOptions,
-  //   drivingOptions: DrivingOptions,
-  //   unitSystem: UnitSystem,
-  //   waypoints[]: DirectionsWaypoint,
-  //   optimizeWaypoints: Boolean,
-  //   provideRouteAlternatives: Boolean,
-  //   avoidFerries: Boolean,
-  //   avoidHighways: Boolean,
-  //   avoidTolls: Boolean,
-  //   region: String
-  // }
-
-  function calcRoute() {
-    var start = $('#desde').val()
-    var end = $('#hasta').val()
-    var medioDeTransporte = $('#comoIr option:selected').val() 
-    
-    var waypts = [];
-    var checkboxArray = $('#puntosIntermedios')
-    
-    for (var i = 0; i < checkboxArray.length; i++) {
-      if (checkboxArray.options[i].selected) {
-        waypts.push({
-          location: $(checkboxArray[i]).val(),
-          stopover: true
-        });
       }
-    }
-
-    var request = {
-      origin: start,
-      destination: end,
-      travelMode: medioDeTransporte,
-      waypoints: waypts
-    };
-    servicioDirecciones.route(request, function(result, status) {
-      if (status == 'OK') {
-        mostradorDirecciones.setDirections(result);
-      } else {
-        window.alert('Directions request failed due to ' + status);
-      }
-    });
+  
+      var request = {
+        origin: start,
+        destination: end,
+        travelMode: medioDeTransporte,
+        waypoints: waypts
+      };
+      servicioDirecciones.route(request, function(result, status) {
+        if (status == 'OK') {
+          mostradorDirecciones.setDirections(result);
+        } else {
+          window.alert('Directions request failed due to ' + status);
+        }
+      });
   }
 
   return {
