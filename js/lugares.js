@@ -14,7 +14,7 @@ lugaresModulo = (function () {
         var input = $('#direccion').val();
         var options = circuloTerritorial.getBounds();
 
-        autocomplete = new google.maps.places.Autocomplete(input, options);
+        var autocomplete = new google.maps.places.Autocomplete(input, options);
   }
 
     // Inicializo la variable servicioLugares y llamo a la función autocompletar
@@ -36,7 +36,6 @@ lugaresModulo = (function () {
 
     servicioLugares.nearbySearch(request, marcadorModulo.marcarLugares);
 
-    // marcadorModulo.marcarLugares(resultados, status);
   }
   return {
     inicializar,

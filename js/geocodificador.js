@@ -11,10 +11,8 @@ geocodificadorModulo = (function () {
     
      geocodificador.geocode({'address': direccion}, function(results, status){
       if(status == google.maps.GeocoderStatus.OK){
-        console.log(results[0].geometry.location.lat());
+        
         var latitude = results[0].geometry.location.lat();
-
-        console.log(results[0].geometry.location.lng());
         var longitude = results[0].geometry.location.lng();
 
         var ubicacion = new google.maps.LatLng(latitude, longitude);
