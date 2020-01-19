@@ -100,7 +100,8 @@ direccionesModulo = (function () {
       var start = $('#desde').val()
       var end = $('#hasta').val()
       var medioDeTransporte = $('#comoIr option:selected').val() 
-      
+      // Travel Modes: DRIVING | BICYCLING | TRANSIT | WALKING
+
       var waypts = [];
       var checkboxArray = $('#puntosIntermedios')
       
@@ -117,8 +118,10 @@ direccionesModulo = (function () {
         origin: start,
         destination: end,
         travelMode: medioDeTransporte,
-        waypoints: waypts
+        waypoints: waypts,
+        optimizeWaypoints: true
       };
+
       servicioDirecciones.route(request, function(result, status) {
         if (status == 'OK') {
           mostradorDirecciones.setDirections(result);
