@@ -101,6 +101,7 @@ direccionesModulo = (function () {
       var end = $('#hasta').val()
       var medioDeTransporte = $('#comoIr option:selected').val() 
       // Travel Modes: DRIVING | BICYCLING | TRANSIT | WALKING
+      // Se modifican en el select los values del selector de acuerdo a los requeridos por el request
 
       var waypts = [];
       var checkboxArray = $('#puntosIntermedios')

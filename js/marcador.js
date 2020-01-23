@@ -17,7 +17,7 @@ marcadorModulo = (function () {
           center: ubicacion
         });
 
-        var miMarcador = new google.maps.Marker({
+        new google.maps.Marker({
           position: ubicacion,
           map: mapa,
           title: 'Ubicación buscada',
