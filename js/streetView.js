@@ -1,12 +1,13 @@
 streetViewModulo = (function () {
   var panorama // 'Visor' de StreetView
+  var map
 
   function inicializar () {
         /* Completar la función inicializar() que crea un panorama
         en una posición y lo muestra en la página. */
         var posicion = {lat: -34.6037389, lng: -58.3815704};
 
-        var map = new google.maps.Map(document.getElementById('map'), {
+        map = new google.maps.Map(document.getElementById('map'), {
           center: posicion,
           zoom: 14
         });

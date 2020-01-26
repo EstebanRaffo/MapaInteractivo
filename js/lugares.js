@@ -11,10 +11,18 @@ lugaresModulo = (function () {
         const posicionCentral = {lat: -34.6037389, lng: -58.3815704}
         var centroDelCirculo = new google.maps.LatLng(posicionCentral);
         var circuloTerritorial = new google.maps.Circle({center: centroDelCirculo, radius: 20000});
-        var input = $('#direccion').val();
+        
         var options = circuloTerritorial.getBounds();
+        var inputDireccion = $('#direccion').val();
+        var inputDesde = $('#desde').val();
+        var inputHasta = $('#hasta').val();
+        var inputAgregar = $('#agregar').val();
 
-        new google.maps.places.Autocomplete(input, options);
+        // Genero el Autocomplete para los 4 inputs
+        new google.maps.places.Autocomplete(inputDireccion, options);
+        new google.maps.places.Autocomplete(inputDesde, options);
+        new google.maps.places.Autocomplete(inputHasta, options);
+        new google.maps.places.Autocomplete(inputAgregar, options);
   }
 
     // Inicializo la variable servicioLugares y llamo a la función autocompletar
@@ -30,9 +38,10 @@ lugaresModulo = (function () {
     del tipo (tipodeLugar) y con el radio indicados en el HTML cerca del lugar
     pasado como parámetro y llame a la función marcarLugares. */
 
-    var radioElegido = $('#radio').val();
+    var inputRadio = $('#radio').val();
+    var radioDeBusqueda = new google.maps.Circle({center: posicion, radius: inputRadio});
     var tipoLugarBuscado = $('#tipoDeLugar option:selected').val();
-    var request = {location: posicion, radius: radioElegido, type: tipoLugarBuscado};
+    var request = {location: posicion, radius: radioDeBusqueda, types: tipoLugarBuscado};
 
     servicioLugares.nearbySearch(request, marcadorModulo.marcarLugares);
 

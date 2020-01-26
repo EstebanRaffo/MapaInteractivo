@@ -17,11 +17,11 @@ marcadorModulo = (function () {
           center: ubicacion
         });
 
-        new google.maps.Marker({
+        miMarcador = new google.maps.Marker({
           position: ubicacion,
           map: mapa,
           title: 'Ubicación buscada',
-          animation: BOUNCE
+          animation: 'BOUNCE'
         });
   }
 
