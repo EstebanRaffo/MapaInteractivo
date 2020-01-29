@@ -23,6 +23,9 @@ marcadorModulo = (function () {
           title: 'Ubicación buscada',
           animation: 'BOUNCE'
         });
+
+        marcadores.push(miMarcador)
+        mostrarMarcadores(marcadores)
   }
 
     // Agrega la dirección del marcador en la lista de Lugares Intermedios

@@ -38,7 +38,7 @@ lugaresModulo = (function () {
     del tipo (tipodeLugar) y con el radio indicados en el HTML cerca del lugar
     pasado como parámetro y llame a la función marcarLugares. */
 
-    var inputRadio = $('#radio').val();
+    var inputRadio = parseInt($('#radio').val());
     var radioDeBusqueda = new google.maps.Circle({center: posicion, radius: inputRadio});
     var tipoLugarBuscado = $('#tipoDeLugar option:selected').val();
     var request = {location: posicion, radius: radioDeBusqueda, types: tipoLugarBuscado};

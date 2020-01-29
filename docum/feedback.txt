@@ -1,0 +1,42 @@
+Comentario general
+
+Buen día, he estado revisando el proyecto enviado para evaluarlo.
+
+La entrega no cumple con todos los requisitos para ser aprobada. Esta iteración debo evaluarla como desaprobada hasta tanto no se completen o solucionen los problemas reportados.
+
+Partiendo de lo pedido en el checklist describo como fueron evaluados cada uno de los puntos del mismo.
+
+Creación del mapa
+Se genera el mapa con la api y muestra adecuadamente.
+
+Obtener coordenadas de dirección
+Adecuado uso del geocodificador que permite obtener las coordenadas de una dirección en usaDirección.
+
+Mostrar Marcador
+Rehacer. No se observa marcador al seleccionar una dirección. Revisar mostrarMiMarcador en el módulo marcador.
+
+Error: InvalidValueError: setRadius: not a number
+
+Buscar lugares cercanos
+Rehacer. Modificar la búsqueda de lugares cercanos para que cumpla las condiciones pedidas. Se debe indicar al objeto servicioLugares lo seleccionado en el html para los elementos 
+radio y tipoDeLugar.
+
+Autocompletar dirección
+Rehacer. Las funcionalidades de autocompletar direcciones no se despliegan. En el módulo lugares asignar para los 4 campos (dirección, desde, hasta y agregar) utilizando el objeto 
+Autocomplete de la Api. Se debe indicar el radio o circulo pedido.
+
+Street view
+Seleccionando una ubicación en particular se presentan las imágenes correspondientes para navegar utilizando "street view" en la parte inferior de la pantalla.
+
+Calcular rutas
+Rehacer. No se puede evaluar.
+
+Sugerencias
+
+La nueva entrega a enviar debe incluir cambios en los puntos marcados para rehacer para cumplir con las consignas.
+
+No se incluiye una api key valida. Evaluando con una propia surgen muchos errores. Se debe testear el comportamiento integral del desarrollo.
+
+La próxima versión con los cambios pedidos podrá cubrir todas las consignas requeridas para aprobar. Esperamos la nueva iteración. Para consultas sobre la devolución está disponible slack.
+
+Que sea un gran día. Saludos, Daniela.
